@@ -5,7 +5,8 @@ public class Address
     private String lineOne, lineTwo, lineThree, city, state, zip, country = null;
 
     /**
-     * Default no-args constructor
+     * Default no-args constructor. All fields will be null after the object is
+     * initialized
      */
     public Address ( )
     {
@@ -22,7 +23,8 @@ public class Address
      * @param state
      * @param zip
      */
-    public Address ( String lineOne, String lineTwo, String lineThree, String city, String state, String zip )
+    public Address ( String lineOne, String lineTwo, String lineThree, String city, String state, String zip,
+            String country )
     {
         super ( );
         this.lineOne = lineOne;
@@ -31,6 +33,7 @@ public class Address
         this.city = city;
         this.state = state;
         this.zip = zip;
+        this.country = country;
     }
 
     /**
@@ -161,7 +164,7 @@ public class Address
 
     /**
      * Gets the country
-     * 
+     *
      * @return the country
      */
     public String getCountry ( )
@@ -171,7 +174,7 @@ public class Address
 
     /**
      * Sets the country
-     * 
+     *
      * @param country
      *            the country to set
      */
