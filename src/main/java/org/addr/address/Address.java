@@ -183,4 +183,99 @@ public class Address
         this.country = country;
     }
 
+    /**
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals ( Object obj )
+    {
+        boolean equal = false;
+        if ( obj instanceof Address )
+        {
+            equal = this.equals ( ( Address ) obj );
+        }
+
+        return equal;
+    }
+
+    /**
+     * Compares the values in the provided address to determine if it is equal to
+     * this address
+     *
+     * @param address
+     * @return
+     */
+    public boolean equals ( Address address )
+    {
+        boolean equals = true;
+
+        // Because we do not know if the fields will be populated, we need to check
+        // Each one individually so we do not blow up at run time.
+        // Because this is the first comparison, equals will always be true
+        // So do not include the equals check
+        if ( this.lineOne != null )
+        {
+            equals &= this.lineOne.equalsIgnoreCase ( address.getLineOne ( ) );
+        }
+        else
+        {
+            equals &= address.getLineOne ( ) == null;
+        }
+
+        if ( equals && this.lineTwo != null )
+        {
+            equals &= this.lineTwo.equalsIgnoreCase ( address.getLineTwo ( ) );
+        }
+        else if ( equals )
+        {
+            equals &= address.getLineTwo ( ) == null;
+        }
+
+        if ( equals && this.lineThree != null )
+        {
+            equals &= this.lineThree.equalsIgnoreCase ( address.getLineThree ( ) );
+        }
+        else if ( equals )
+        {
+            equals &= address.getLineThree ( ) == null;
+        }
+
+        if ( equals && this.city != null )
+        {
+            equals &= this.city.equalsIgnoreCase ( address.getCity ( ) );
+        }
+        else if ( equals )
+        {
+            equals &= address.getCity ( ) == null;
+        }
+
+        if ( equals && this.state != null )
+        {
+            equals &= this.state.equalsIgnoreCase ( address.getState ( ) );
+        }
+        else if ( equals )
+        {
+            equals &= address.getState ( ) == null;
+        }
+
+        if ( equals && this.zip != null )
+        {
+            equals &= this.zip.equalsIgnoreCase ( address.getZip ( ) );
+        }
+        else if ( equals )
+        {
+            equals &= address.getZip ( ) == null;
+        }
+
+        if ( equals && this.country != null )
+        {
+            equals &= this.country.equalsIgnoreCase ( address.getCountry ( ) );
+        }
+        else if ( equals )
+        {
+            equals &= address.getCountry ( ) == null;
+        }
+
+        return equals;
+    }
 }
