@@ -57,6 +57,11 @@ public class AddressTest
         this.assertEqualsFields ( address );
     }
 
+    /**
+     * Compares all fields to what is in the supplied address object.
+     * 
+     * @param address
+     */
     private void assertEqualsFields ( Address address )
     {
         assertEquals ( this.newAddressLineOne, address.getLineOne ( ) );
